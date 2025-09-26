@@ -1,0 +1,12 @@
+I1=imread('Baboon_round_25.png');
+I2=imread('Baboon_round_200.png');
+I3=double(I1)-double(I2);
+after_R=uint8(abs(I3(:,:,1)));
+after_G=uint8(abs(I3(:,:,2)));
+after_B=uint8(abs(I3(:,:,3)));
+after_I=cat(3,after_R,after_G,after_B);
+en_bit_dimen_pathname='I:\Codes\RLID_Sprout\Visual Safety\chaos\';
+image_name=['diff_baboon_round_25_',num2str(dimen),'.png'];
+en_pathfile=[en_bit_dimen_pathname image_name];
+imwrite(after_I,en_pathfile);
+%imshow(after_R);
